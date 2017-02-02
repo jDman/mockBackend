@@ -1,0 +1,10 @@
+<div class="ticket panel panel-default" >
+  <div class="panel-body" ng-class="ticket.percentageComplete == '100' ? 'well' : ''">
+    <button class="btn btn-success" (click)="service.saveTicket(ticket)"><span class="glyphicon glyphicon-save"> </span> &nbsp; Save</button>
+    <button class="btn btn-danger" (click)="service.deleteTicket(ticket)"><span class="glyphicon glyphicon-trash"> </span> &nbsp; Delete</button>
+    <h3>({{ticket._id}}) <input [(ngModel)]="ticket.title" /></h3>
+    <span class="assigned-to">Assigned to: <input [(ngModel)]="ticket.assignedTo" /></span>
+    <span class="percentage-complete">Completed %: <input [(ngModel)]="ticket.percentageComplete" /></span><br />
+    <textarea [(ngModel)]="ticket.description" class="description"></textarea>
+  </div>
+</div>

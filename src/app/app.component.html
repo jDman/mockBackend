@@ -1,3 +1,22 @@
-<h1>
-  {{title}}
-</h1>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">NG2 Ticketing system</a>
+    </div>
+    <form class="navbar-form navbar-left" name="search-form" role="search">
+      <div class="form-group">
+        <button class="btn btn-default" (click)="service.addNewTicket()"><span class="glyphicon glyphicon-plus"> </span> &nbsp; Add new ticket</button>
+        <button class="btn btn-default" (click)="service.loadAllTickets()"><span class="glyphicon glyphicon-download"> </span> &nbsp; Load all tickets</button>
+
+        <input type="text" class="form-control" name="ticket-to-search" [(ngModel)]="ticketToSearch" />
+        <button class="btn btn-default" (click)="service.loadTicketById(ticketToSearch)"><span class="glyphicon glyphicon-download"> </span> &nbsp; Load ticket</button>
+      </div>
+    </form>
+  </div>
+</nav>
+
+<div class="container">
+  <app-ticket *ngFor="let ticket of service.tickets"
+              [ticket]="ticket">
+  </app-ticket>
+</div>
